@@ -2,13 +2,36 @@
 
 # Machine Learning Approaches to Petals Around the Rose
 
-This is a collection of experiments for automated algorithms that can solve the `Petals Around the Rose` game and correctly deduce
-the "rule" used to count the number of "petals" on a roll of five dice. These are didactic, intended to showcase weaker and stronger
-methods, so any particular method might be intentionally sub-optimal.
+This is a collection of experiments for automated algorithms that can solve the
+`Petals Around the Rose` game and correctly deduce the "rule" used to count the
+number of "petals" on a roll of five dice. These are didactic, intended to
+showcase weaker and stronger methods, so any particular method might be
+intentionally sub-optimal.
 
-The core implementation lives in `src/rose/`. It generates synthetic training data, trains several approaches, and evaluates how quickly each model learns the scoring rule. The approaches in this repo include linear baselines, a bincount feature model, a GAM, a gradient-boosted tree, a fully connected neural network, and a DeepSet model.
+The core implementation lives in `src/rose/`. It generates synthetic training
+data, trains several approaches, and evaluates how quickly each model learns
+the scoring rule. The approaches in this repo include linear baselines, a
+bincount feature model, a GAM, a gradient-boosted tree, a fully connected
+neural network, and a DeepSet model.
 
-Most of the exploration happens in the notebooks under `notebooks/`. These cover concept learning, exact methods, linear feature ideas, tree and neural network experiments, hyperparameter tuning, and a DeepSet animation. Generated comparison tables and plots are saved under `docs/approaches/`, with the HTML summary template in `templates/summary.html`.
+![DeepSet Architecture](docs/images/deepset_petals_architecture.png)
+
+Most of the exploration happens in the notebooks under `notebooks/`. These
+cover concept learning, exact methods, linear feature ideas, tree and neural
+network experiments, hyperparameter tuning, and a DeepSet animation. Generated
+comparison tables and plots are saved under `docs/approaches/`, with the HTML
+summary template in `templates/summary.html`.
+
+![Summary chart of different approaches](docs/images/summary_chart.png)
+
+The key concept is [inductive bias][IB]. Models with an inductive bias that
+matches the specific structure of the problem can learn quickly, sometimes from
+just a handful of examples. Meanwhile, less specific, more general models with
+a larger hypothesis space to explore need far more examples to convince themselves
+that the patterns they're seeing are true:
+
+![Animation of a NN slowly learning this dataset](docs/images/fcnn_animation.gif)
+
 
 ## Setup
 
@@ -79,3 +102,6 @@ rose/
 |       `-- templates/           # Jinja2 templates for reports (package-data)
 `-- tests/                       # unit tests
 ```
+
+
+[IB]: https://en.wikipedia.org/wiki/Inductive_bias
