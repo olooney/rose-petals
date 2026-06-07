@@ -4,9 +4,10 @@
 
 This is a collection of experiments for automated algorithms that can solve the
 `Petals Around the Rose` game and correctly deduce the "rule" used to count the
-number of "petals" on a roll of five dice. These are didactic, intended to
-showcase weaker and stronger methods, so any particular method might be
-intentionally sub-optimal.
+number of "petals" on a roll of five dice. (If you're unfamiliar with the game,
+I wrote an [interactive demo][DRP] that lets you experience it for yourself
+without fear of spoilers.) These are didactic, intended to showcase weaker and
+stronger methods, so any particular method might be intentionally sub-optimal.
 
 The core implementation lives in `src/rose/`. It generates synthetic training
 data, trains several approaches, and evaluates how quickly each model learns
@@ -105,3 +106,4 @@ rose/
 
 
 [IB]: https://en.wikipedia.org/wiki/Inductive_bias
+[DRP]: https://www.oranlooney.com/demos/rose-petals/
